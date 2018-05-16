@@ -1,32 +1,34 @@
 $(document).ready( function() {
   $('#rbutton').on('click', function() {
     userChoice = 'rock'
-    $('#player_choice').text('You chose rock')
+    $('#player_choice').text('You chose: rock')
     console.log('You chose: rock')
   })
   $('#pbutton').on('click', function() {
     userChoice = 'paper'
-    $('#player_choice').text('You chose paper')
+    $('#player_choice').text('You chose: paper')
     console.log('You chose: paper')
   })
-  $('#sbutton').on('click', function() {
+  $('#sbutton').on('click', function () {
     userChoice = 'scissors'
-    $('#player_choice').text('You chose scissors')
-    console.log('You chose: scissors')
+    $('#player_choice').text('You chose: scissors')
+    console.log('You chose: ' + userChoice)
   })
   $('.buttons').on('click', function() {
-    var computerChoice = Math.random();
-      if (computerChoice < 0.34) {
-        computerChoice = "rock";
-      } else if (computerChoice <= 0.67) {
-        computerChoice = "paper";
-      } else {
-        computerChoice = "scissors";
-      }
-      $('#computer_choice').text('The computer chose ' + computerChoice)
-      console.log('Computer chose: ' + computerChoice)
-    })
-    $('.winner').on('click', function () {
+    $('#champ').text(winner)
+    $('#computer_choice').text('Computer chose: ' + computerChoice)
+  })
+})
+
+var computerChoice = Math.random();
+if (computerChoice < 0.34) {
+  computerChoice = "rock";
+} else if (computerChoice <= 0.67) {
+  computerChoice = "paper";
+} else {
+  computerChoice = "scissors";
+}
+    var winner = function() {
       if (userChoice === computerChoice) {
         $('#champ').text("It's a Tie!")
       }
@@ -53,5 +55,8 @@ $(document).ready( function() {
           $('#champ').text("You Lose!")
         }
       }
-    })
-})
+    }
+
+  
+
+
